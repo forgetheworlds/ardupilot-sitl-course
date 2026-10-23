@@ -1,0 +1,66 @@
+# VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/Grass.proto"
+EXTERNPROTO "../protos/Iris.proto"
+
+WorldInfo {
+  title "Iris and a wall"
+  basicTimeStep 2
+  FPS 20
+}
+Viewpoint {
+  orientation -0.0671 0.8934 0.4442 0.3352
+  position -10 -1.5 5
+  follow "Iris"
+  followSmoothness 0.01
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 100 100
+  appearance Grass {
+  }
+}
+Solid {
+  translation 15 0 2
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.1 0.1
+        roughness 1
+        metalness 0
+      }
+      geometry DEF WALL Box {
+        size 0.5 8 4
+      }
+    }
+  ]
+  name "wall"
+  boundingObject USE WALL
+}
+Iris {
+  translation 0 0 0.1
+  controller "ardupilot_vehicle_controller"
+  controllerArgs [
+    "--motors"
+    "m1_motor, m2_motor, m3_motor, m4_motor"
+    "--rangefinder"
+    "range-finder"
+    "--rangefinder-port"
+    "5599"
+  ]
+  extensionSlot [
+    RangeFinder {
+      translation 0.1 0 0
+      fieldOfView 1.2
+      width 64
+      height 48
+      maxRange 20
+    }
+  ]
+}

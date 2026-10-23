@@ -1,0 +1,19 @@
+# Type these into the MAVProxy prompt, one line at a time.
+# Lines starting with # are notes. Don't type them.
+
+# 1. Switch to the mode that accepts commands from a ground station
+mode ______
+
+# 2. Turn the motors on
+____ throttle
+
+# 3. Climb to 10 metres
+______ 10
+
+# 4. Check the height. Which field is it, and what unit?
+status GLOBAL_POSITION_INT
+
+# 5. Fly somewhere with the map (right-click > Fly To)
+
+# 6. Fly back to where you armed, and land
+mode ___

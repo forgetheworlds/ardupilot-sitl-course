@@ -1,0 +1,19 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# files SITL and MAVProxy leave behind
+eeprom.bin
+mav.parm
+mav.tlog
+mav.tlog.raw
+*.tlog
+*.tlog.raw
+logs/
+terrain/
+
+# exercise output
+flight.csv
+flight.png

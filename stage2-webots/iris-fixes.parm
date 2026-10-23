@@ -1,0 +1,10 @@
+# Loaded after ArduPilot's iris.parm.
+# ArduCopter 4.7 refuses to arm with a zero rate I-term
+# or with ACRO_BAL_* larger than the angle P gains.
+ATC_RAT_RLL_I    0.01
+ATC_RAT_PIT_I    0.01
+ACRO_BAL_ROLL    0
+ACRO_BAL_PITCH   0
+# Webots sends sensor data at 500 Hz. A 200 Hz loop leaves room for
+# slower computers (the gyro must run at 1.8x the loop rate to arm).
+SCHED_LOOP_RATE  200
